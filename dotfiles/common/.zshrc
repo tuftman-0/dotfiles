@@ -165,3 +165,5 @@ export PYTHONPATH="/home/josh/anaconda3/bin/python"
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
 source ~/.zsh/zsh-sensible/sensible.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

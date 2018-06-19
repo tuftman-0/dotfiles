@@ -165,3 +165,5 @@ export PYTHONPATH="/home/josh/anaconda3/bin"
 
 # load local ranger config.rc
 # export RANGER_LOAD_DEFAULT_RC=FALSE
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
