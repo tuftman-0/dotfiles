@@ -110,6 +110,7 @@ printf "\033[6 q"
 }
 zle -N zle-line-init
 bindkey -v
+export KEYTIMEOUT=1
 bindkey "^?" backward-delete-char
 bindkey "^[[3~" delete-char
 bindkey "^[[7~" beginning-of-line

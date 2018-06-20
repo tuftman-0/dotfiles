@@ -25,6 +25,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 " Programming
 Plug 'ajh17/VimCompletesMe'
+Plug 'sillybun/vim-repl'
 Plug 'wilywampa/vim-ipython'
 Plug 'kovisoft/slimv'
 " Themes
