@@ -154,6 +154,8 @@ URxvt*highlightColor:            #81a1c1
 URxvt*highlightTextColor:        #81a1c1
 URxvt*cursorColor:               #00bcd4
 URxvt*cursorColor2:              Magenta
+URxvt*iso14755:                  true
+URxvt*iso14755_52:               false
 ! URxvt*pointerColor:              color
 ! URxvt*pointerColor2:             color
 ! URxvt*borderColor:               color
@@ -194,8 +196,6 @@ URxvt*cursorColor2:              Magenta
 ! URxvt*perl-eval:                 perl-eval
 ! URxvt*perl-ext-common:           string
 ! URxvt*perl-ext:                  string
-! URxvt*iso14755:                  boolean
-! URxvt*iso14755_52:               boolean
 ! URxvt*xrm:                       string
 ! URxvt*keysym.sym:                keysym
 ! URxvt*background.border:         boolean
