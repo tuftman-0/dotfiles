@@ -1,10 +1,10 @@
 ! Xft.dpi: 93.7407306418
 Xft.dpi: 94
-Xft.antialias: True
+Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
 Xft.autohint: false
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
 !*background:                      #272827

@@ -153,8 +153,8 @@ V=/home/josh/repos/V
 export V
 alias v="python2 $V/main.py"
 export NVIM_LISTEN_ADDRESS=/tmp/nvim
-alias nvinit "nvim .config/nvim/init.vim"
-
+alias nvinit="nvim .config/nvim/init.vim"
+alias svim='vim -u ~/.SpaceVim/init.vim'
 
 
 # added by Anaconda3 installer
