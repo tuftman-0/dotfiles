@@ -9,12 +9,12 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'machakann/vim-swap'
+Plug 'junegunn/vim-easy-align'
 " Slightly less essential 
 Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-speeddating'
 Plug 'mbbill/undotree'
+Plug 'tpope/vim-speeddating'
 Plug 'jceb/vim-orgmode'
-Plug 'junegunn/vim-easy-align'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -33,6 +33,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
+" to try out
+"Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
 
 "*****************************THEME AND COLOURS*******************************"
@@ -89,6 +91,7 @@ let g:ipy_monitor_subchannel = 0
 
 " fix slow ctrl-P plugin
 
+<<<<<<< HEAD
 let g:ctrlp_use_caching = 0
 " let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
@@ -98,6 +101,9 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
 
+=======
+" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+>>>>>>> 4594bdda92551461b5165e9312566134658f6f06
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
@@ -137,6 +143,12 @@ nmap <M-k> mz:m-2<cr>`z
 inoremap <A-j> <C-o>:m .+1<CR>
 inoremap <A-k> <C-o>:m .-2<CR>
 
+" easy align mapping
+vmap <Enter> <Plug>(EasyAlign)
+nmap <leader>a <Plug>(EasyAlign)
+
+" Use backspace to switch buffers
+" nnoremap <BS> <C-^>
 
 "******************************CUSTOM COMMANDS********************************"
 " Save as super user even if vim was opened as regular user
