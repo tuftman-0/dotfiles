@@ -89,8 +89,15 @@ let g:ipy_monitor_subchannel = 0
 
 " fix slow ctrl-P plugin
 
-let g:ctrlp_use_caching = 1
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_use_caching = 0
+" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+
+" Ignore some folders and files for CtrlP indexing
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
+
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
@@ -104,6 +111,9 @@ nnoremap <silent> <Leader>l :noh<CR>
 if exists(':tnoremap')
   tnoremap <Esc> <C-\><C-n>
 endif
+
+" python repl toggle
+nnoremap <leader>r :REPLToggle<Cr>
 
 " alt function for coding in V
 function! Alt()
