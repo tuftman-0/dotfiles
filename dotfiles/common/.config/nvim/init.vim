@@ -10,7 +10,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'machakann/vim-swap'
 Plug 'junegunn/vim-easy-align'
-" Slightly less essential 
+" Slightly less essential
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-speeddating'
@@ -21,11 +21,12 @@ Plug 'vim-airline/vim-airline-themes'
 " Filesystem
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 " Programming
 Plug 'ajh17/VimCompletesMe'
-Plug 'sillybun/vim-repl'
+Plug 'hkupty/iron.nvim'
+" Plug 'BurningEther/iron.nvim'
 Plug 'wilywampa/vim-ipython'
 Plug 'kovisoft/slimv'
 " Themes
@@ -48,6 +49,7 @@ set hlsearch incsearch
 set inccommand=nosplit
 " hi MatchParen cterm=bold ctermbg=red ctermfg=Darkblue
 " hi Search cterm=NONE ctermbg=red ctermfg=blue
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
 "****************************GENERAL CONFIGURATION****************************"
 set expandtab          " enter spaces when tab is pressed
@@ -71,9 +73,9 @@ set laststatus=2
 set undofile
 
 " configure expanding of tabs for various file types
-au BufRead,BufNewFile *.py set expandtab
-au BufRead,BufNewFile *.c set noexpandtab
-au BufRead,BufNewFile *.h set noexpandtab
+au BufRead,BufNewFile *.py      set expandtab
+au BufRead,BufNewFile *.c       set noexpandtab
+au BufRead,BufNewFile *.h       set noexpandtab
 au BufRead,BufNewFile Makefile* set noexpandtab
 
 filetype plugin indent on
@@ -90,19 +92,15 @@ let g:ipy_monitor_subchannel = 0
 :augroup END:
 
 " fix slow ctrl-P plugin
-" let g:ctrlp_use_caching = 0
 " let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-" Ignore some folders and files for CtrlP indexing
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
-"   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
-"   \ }
-
 " if executable('ag')
 "   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 " endif
 
 "*******************************CUSTOM KEYBINDS*******************************"
+:let mapleader = ','
+
+nnoremap <C-P> :FZF<CR>
 
 " Use <Leader>l to clear the search highlighting
 nnoremap <silent> <Leader>l :noh<CR>
@@ -112,15 +110,23 @@ if exists(':tnoremap')
   tnoremap <Esc> <C-\><C-n>
 endif
 
-" python repl toggle
-nnoremap <leader>r :REPLToggle<Cr>
+" iron.nvim
+" deactivate default mappings
+let g:iron_map_defaults=0
+" define custom mappings for the python filetype
+augroup ironmapping
+    autocmd!
+    autocmd Filetype python nmap <buffer> <localleader>t <Plug>(iron-send-motion)
+    autocmd Filetype python vmap <buffer> <localleader>t <Plug>(iron-send-motion)
+    autocmd Filetype python nmap <buffer> <localleader>p <Plug>(iron-repeat-cmd)
+augroup END
 
 " alt function for coding in V
 function! Alt()
   let c = nr2char(getchar() + 128)
   exec 'normal gi'.c
 endfunction
-inoremap <M-a> <C-o>:call Alt()<cr>
+inoremap <M-a> <C-o>:call Alt()<CR>
 
 " scroll window one line in insert mode more easily
 inoremap <C-E> <C-X><C-E>  " up
@@ -159,9 +165,9 @@ let g:Powerline_symbols='unicode'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_modified=1
 let g:airline_inactive_collapse=1
-let g:airline_symbols.branch = ''
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch     = ''
+let g:airline_symbols.paste      = 'ρ'
+let g:airline_symbols.readonly   = ''
+let g:airline_symbols.linenr     = '¶'
+let g:airline_symbols.maxlinenr  = ''
 let g:airline_symbols.whitespace = 'Ξ'
