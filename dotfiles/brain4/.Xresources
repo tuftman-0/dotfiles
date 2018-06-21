@@ -71,6 +71,7 @@ XTerm*selectToClipboard:          true
 !URxvt.bold.font:                  xft:mononoki:bold:pixelsize=15
 !URxvt.font:                       xft:TamzenForPowerline-11
 URxvt.font:                       xft:luculent:size=8.5:antialias=false
+URxvt.bold.font:                  xft:luculent:size=8.5
 ! *antialias:  true
 
 ! alternative font settings with 'terminus':
