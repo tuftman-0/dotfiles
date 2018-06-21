@@ -90,31 +90,17 @@ let g:ipy_monitor_subchannel = 0
 :augroup END:
 
 " fix slow ctrl-P plugin
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-let g:ctrlp_use_caching = 0
+" let g:ctrlp_use_caching = 0
 " let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-
 " Ignore some folders and files for CtrlP indexing
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
-  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
-  \ }
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\.git$\|\.yardoc\|public$|log\|tmp$',
+"   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+"   \ }
 
-=======
-" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
->>>>>>> 4594bdda92551461b5165e9312566134658f6f06
-=======
-" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
->>>>>>> 4594bdda92551461b5165e9312566134658f6f06
-=======
-" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
->>>>>>> 4594bdda92551461b5165e9312566134658f6f06
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+" if executable('ag')
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" endif
 
 "*******************************CUSTOM KEYBINDS*******************************"
 
