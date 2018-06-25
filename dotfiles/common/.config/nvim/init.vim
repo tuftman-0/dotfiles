@@ -35,6 +35,7 @@ Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 " to try out
+Plug 'fncll/wordnet.vim'
 "Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
 
@@ -58,7 +59,7 @@ set softtabstop=4
 set shiftwidth=4       " number of spaces to use for auto indent
 set autoindent         " copy indent from current line when starting a new line
 
-set encoding=utf-8
+" set encoding=utf-8
 set scrolloff=3
 set cursorline
 set showmode
