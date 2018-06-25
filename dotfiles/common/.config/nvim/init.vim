@@ -65,7 +65,10 @@ set scrolloff=3
 set cursorline
 set showmode
 set showcmd
-set showmatch
+set noshowmatch
+" set matchtime=1
+
+
 set hidden
 set wildmenu
 set wildmode=list:longest
