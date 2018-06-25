@@ -36,6 +36,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 " to try out
 Plug 'fncll/wordnet.vim'
+" Plug 'vim-scripts/lookup.vimvim-scripts/lookup.vim'
 "Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
 
@@ -101,7 +102,7 @@ let g:ipy_monitor_subchannel = 0
 "*******************************CUSTOM KEYBINDS*******************************"
 :let mapleader = ','
 
-nnoremap <C-P> :FZF<CR>
+nnoremap <Leader>fzf :FZF<CR>
 
 " Use <Leader>l to clear the search highlighting
 nnoremap <silent> <Leader>l :noh<CR>
