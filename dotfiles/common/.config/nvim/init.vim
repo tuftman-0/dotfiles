@@ -4,31 +4,30 @@ autocmd! BufWritePost ~/.config/nvim/init.vim nested :source ~/.config/nvim/init
 call plug#begin('~/.vim/plugged')
 " Essential
 Plug 'jeffkreeftmeijer/neovim-sensible'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'machakann/vim-swap'
 Plug 'junegunn/vim-easy-align'
-" Slightly less essential
-Plug 'tpope/vim-unimpaired'
+Plug 'machakann/vim-swap'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
-Plug 'tpope/vim-speeddating'
+" Slightly less essential
 Plug 'jceb/vim-orgmode'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Filesystem
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 " Programming
 Plug 'ajh17/VimCompletesMe'
 Plug 'hkupty/iron.nvim'
-" Plug 'BurningEther/iron.nvim'
 Plug 'wilywampa/vim-ipython'
 Plug 'kovisoft/slimv'
 " Themes
@@ -116,11 +115,17 @@ noremap <leader>r :ToggleBool<CR>
 nnoremap <leader>pl oPlug 'pa'
 
 " fuzzy finder
-" nnoremap <C-P> :FZF<CR>
-nnoremap <Leader>ff :FZF<CR>
+nnoremap <leader>ff :FZF<CR>
 
-" Use <Leader>l to clear the search highlighting
-nnoremap <silent> <Leader>l :noh<CR>
+" Use <leader>l to clear the search highlighting
+nnoremap <silent> <leader>l :noh<CR>
+
+" easy align mapping
+vmap <Enter> <Plug>(EasyAlign)
+nmap <leader>a <Plug>(EasyAlign)
+
+" Toggle undotree
+nnoremap <leader> :FZF<CR>
 
 " makes it easier to get out of terminal mode
 if exists(':tnoremap')
@@ -159,10 +164,6 @@ nmap <M-k> mz:m-2<cr>`z
 " Insert mode
 inoremap <A-j> <C-o>:m .+1<CR>
 inoremap <A-k> <C-o>:m .-2<CR>
-
-" easy align mapping
-vmap <Enter> <Plug>(EasyAlign)
-nmap <leader>a <Plug>(EasyAlign)
 
 " Use backspace to switch buffers
 " nnoremap <BS> <C-^>
