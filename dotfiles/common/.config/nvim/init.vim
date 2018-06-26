@@ -58,6 +58,9 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
 
 "****************************GENERAL CONFIGURATION****************************"
+let g:python3_host_prog = '/home/josh/anaconda3/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+
 " set expandtab          " enter spaces when tab is pressed
 " set tabstop=4          " use 4 spaces to represent tab
 " set softtabstop=4
@@ -125,7 +128,7 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
 
 " Toggle undotree
-nnoremap <leader> :FZF<CR>
+nnoremap <leader>ut :UndotreeToggle<CR>
 
 " makes it easier to get out of terminal mode
 if exists(':tnoremap')
@@ -162,8 +165,8 @@ vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 " Insert mode
-inoremap <A-j> <C-o>:m .+1<CR>
-inoremap <A-k> <C-o>:m .-2<CR>
+imap <M-j> <C-o>:m .+1<CR>
+imap <M-k> <C-o>:m .-2<CR>
 
 " Use backspace to switch buffers
 " nnoremap <BS> <C-^>
