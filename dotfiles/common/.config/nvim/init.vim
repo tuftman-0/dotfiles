@@ -11,6 +11,8 @@ Plug 'tpope/vim-surround'
 Plug 'machakann/vim-swap'
 Plug 'junegunn/vim-easy-align'
 " Slightly less essential
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-speeddating'
@@ -36,6 +38,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sjl/badwolf'
 " to try out
 Plug 'fncll/wordnet.vim'
+Plug 'sagarrakshe/toggle-bool'
 " Plug 'vim-scripts/lookup.vimvim-scripts/lookup.vim'
 "Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
@@ -44,6 +47,7 @@ call plug#end()
 colorscheme badwolf
 let g:airline_theme='badwolf'   "kolor is also good 
 let g:lisp_rainbow=1
+let g:loaded_matchit = 1
 
 
 " configuring highlighting colours
@@ -53,12 +57,13 @@ set inccommand=nosplit
 " hi Search cterm=NONE ctermbg=red ctermfg=blue
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
+
 "****************************GENERAL CONFIGURATION****************************"
-set expandtab          " enter spaces when tab is pressed
-set tabstop=4          " use 4 spaces to represent tab
-set softtabstop=4
-set shiftwidth=4       " number of spaces to use for auto indent
-set autoindent         " copy indent from current line when starting a new line
+" set expandtab          " enter spaces when tab is pressed
+" set tabstop=4          " use 4 spaces to represent tab
+" set softtabstop=4
+" set shiftwidth=4       " number of spaces to use for auto indent
+" set autoindent         " copy indent from current line when starting a new line
 
 " set encoding=utf-8
 set scrolloff=3
@@ -78,10 +83,10 @@ set laststatus=2
 set undofile
 
 " configure expanding of tabs for various file types
-au BufRead,BufNewFile *.py      set expandtab
-au BufRead,BufNewFile *.c       set noexpandtab
-au BufRead,BufNewFile *.h       set noexpandtab
-au BufRead,BufNewFile Makefile* set noexpandtab
+" au BufRead,BufNewFile *.py      set expandtab
+" au BufRead,BufNewFile *.c       set noexpandtab
+" au BufRead,BufNewFile *.h       set noexpandtab
+" au BufRead,BufNewFile Makefile* set noexpandtab
 
 filetype plugin indent on
 
@@ -105,6 +110,12 @@ let g:ipy_monitor_subchannel = 0
 "*******************************CUSTOM KEYBINDS*******************************"
 :let mapleader = ','
 
+" Toggle various booleans
+noremap <leader>r :ToggleBool<CR>
+
+nnoremap <leader>pl oPlug 'pa'
+
+" fuzzy finder
 nnoremap <Leader>fzf :FZF<CR>
 
 " Use <Leader>l to clear the search highlighting

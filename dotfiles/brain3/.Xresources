@@ -82,7 +82,7 @@ XTerm*selectToClipboard:          true
 !URxvt.bold.font:                  xft:Tamzen8x16b 
 
 
-URxvt.font:                       xft:luculent:size=8:antialias=false
+URxvt.font:                       xft:luculent:size=8:antialias=true
 
 ! alternative font settings with 'terminus':
 !URxvt.font:      -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
