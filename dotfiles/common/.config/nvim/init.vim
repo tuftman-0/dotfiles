@@ -116,7 +116,8 @@ noremap <leader>r :ToggleBool<CR>
 nnoremap <leader>pl oPlug 'pa'
 
 " fuzzy finder
-nnoremap <Leader>fzf :FZF<CR>
+" nnoremap <C-P> :FZF<CR>
+nnoremap <Leader>ff :FZF<CR>
 
 " Use <Leader>l to clear the search highlighting
 nnoremap <silent> <Leader>l :noh<CR>
