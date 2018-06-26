@@ -38,6 +38,7 @@ Plug 'sjl/badwolf'
 " to try out
 Plug 'fncll/wordnet.vim'
 Plug 'sagarrakshe/toggle-bool'
+Plug 'https://github.com/jpalardy/vim-slime'
 " Plug 'vim-scripts/lookup.vimvim-scripts/lookup.vim'
 "Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
@@ -60,6 +61,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 "****************************GENERAL CONFIGURATION****************************"
 let g:python3_host_prog = '/home/josh/anaconda3/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
+let g:slime_target = "neovim"
 
 " set expandtab          " enter spaces when tab is pressed
 " set tabstop=4          " use 4 spaces to represent tab
