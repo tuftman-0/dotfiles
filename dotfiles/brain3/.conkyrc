@@ -1,0 +1,43 @@
+# Global settings
+background no
+out_to_x no
+out_to_console yes
+use_spacer none
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address.
+if_up_strictness address
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# Updating and sampling
+update_interval 1  # Update every second
+total_run_times 0  # Run forever
+net_avg_samples 2  # Average net use with 2 samples
+cpu_avg_samples 2  # Average CPU use with 2 samples
+
+# mopidy line
+TEXT
+
+[
+    { "full_text" : "${if_mpd_playing}${mpd_status}: ${exec mpc current | sed 's/"/\\"/g'} ${mpd_elapsed}/${mpd_length}${endif}", "color" : "\#5f87ff"},
+    ${if_up eno1} { "full_text" : "E ▼ ${downspeedf eno1}K ▲ ${upspeedf eno1}K"}, ${else}\
+      ${if_up enp0s25} { "full_text" : "E ▼ ${downspeedf enp0s25}K ▲ ${upspeedf enp0s25}K"}, ${else}\
+        ${if_up wlp2s0} { "full_text" : "W ▼ ${downspeedf wlp2s0}K ▲ ${upspeedf wlp2s0}K"}, ${else}\
+          { "full_text" : "No Network" , "color" : "\#ff0000" },\
+        ${endif}\
+      ${endif}\
+    ${endif}\
+    { "full_text" : "C ${cpu}%", "color" : ${if_match ${cpu}>75}"\#cf6a4c"${else}${if_match ${cpu}>25}"\#ffd75f"${else}"\#87af5f"${endif}${endif} },
+    { "full_text" : "M ${memperc}%", "color" : ${if_match ${memperc}>75}"\#cf6a4c"${else}${if_match ${memperc}>50}"\#ffd75f"${else}"\#87af5f"${endif}${endif} },
+    { "full_text" : "/ ${fs_free /}, ${fs_used_perc /}%", "color" : ${if_match ${fs_used_perc /}>75}"\#cf6a4c"${else}${if_match ${fs_used_perc /}>30}"\#ffd75f"${else}"\#87af5f"${endif}${endif} },
+    { "full_text" : "~/ ${fs_free /home/josh/}, ${fs_used_perc /home/josh/}%", "color" : ${if_match ${fs_used_perc /home/josh/}>75}"\#cf6a4c"${else}${if_match ${fs_used_perc /home/josh/}>30}"\#ffd75f"${else}"\#87af5f"${endif}${endif} },
+    { "full_text" : "${battery_short BAT0}", "color" : ${if_match ${battery_percent BAT0}<17}"\#cf6a4c"${else}${if_match ${battery_percent BAT0}<50}"\#fff75f"${else}"\#ffffff"${endif}${endif}},
+    { "full_text" : "${time %a, %d / %m / %Y  | %k:%M}" }
+],
