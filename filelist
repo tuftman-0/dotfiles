@@ -1,7 +1,8 @@
 .zshrc
 .bashrc
 .bash_profile
-.conkyrc
+.conkyrc:brain4
+.conkyrc:brain3
 .spacemacs
 .font_aliases
 .Xresources:brain4
