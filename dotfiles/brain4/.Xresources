@@ -155,8 +155,8 @@ URxvt*highlightColor:            #81a1c1
 URxvt*highlightTextColor:        #81a1c1
 URxvt*cursorColor:               #00bcd4
 URxvt*cursorColor2:              Magenta
-URxvt*iso14755:                  true
-URxvt*iso14755_52:               false
+URxvt*iso14755:                  false
+URxvt*iso14755_52:               true
 ! URxvt*pointerColor:              color
 ! URxvt*pointerColor2:             color
 ! URxvt*borderColor:               color
