@@ -12,51 +12,93 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-speeddating', { 'for': 'org' }
 Plug 'tpope/vim-fugitive'
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'}
 " Slightly less essential
-Plug 'jceb/vim-orgmode'
+" Plug 'jceb/vim-orgmode', { 'for': 'org' }
+" Lightline
+
+Plug 'itchyny/lightline.vim'
+Plug '844196/lightline-badwolf.vim'
+Plug 'mgee/lightline-bufferline'
 " Airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 " Filesystem
 Plug 'junegunn/fzf.vim'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Programming
 Plug 'ajh17/VimCompletesMe'
-Plug 'hkupty/iron.nvim'
-Plug 'wilywampa/vim-ipython'
+Plug 'roxma/nvim-completion-manager'
+Plug 'hkupty/iron.nvim',
+Plug 'wilywampa/vim-ipython', 
 Plug 'kovisoft/slimv'
 " Themes
-Plug 'joshdick/onedark.vim'
-Plug 'morhetz/gruvbox'
 Plug 'nanotech/jellybeans.vim'
+Plug 'sheerun/vim-wombat-scheme'
 Plug 'sjl/badwolf'
 " to try out
 Plug 'fncll/wordnet.vim'
 Plug 'sagarrakshe/toggle-bool'
 Plug 'https://github.com/jpalardy/vim-slime'
-" Plug 'vim-scripts/lookup.vimvim-scripts/lookup.vim'
-"Plug 'maxboisvert/vim-simple-complete'
 call plug#end()
 
 "*****************************THEME AND COLOURS*******************************"
+
+let g:lightline = {
+  \ 'colorscheme': 'badwolf',
+  \ 'active': {
+  \   'left':[ [ 'mode', 'paste' ],
+  \            [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component': {
+  \   'lineinfo': ' %3l:%-2v',
+  \ },
+  \ 'component_function': {
+  \   'readonly': 'LightlineReadonly',
+  \   'fugitive': 'LightlineFugitive'
+  \ },
+  \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '', 'right': '' }
+  \ }
+
+function! LightlineReadonly()
+        return &readonly ? '' : ''
+endfunction
+
+function! LightlineFugitive()
+        if exists('*fugitive#head')
+                let branch = fugitive#head()
+                return branch !=# '' ? ''.branch : ''
+        endif
+        return ''
+endfunction
+
+let g:lightline.tabline = {
+  \   'left': [ ['buffers'] ],
+  \   'right': [ ['tabs'] ]
+  \ }
+
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
+
+
 colorscheme badwolf
-let g:airline_theme='badwolf'   "kolor is also good 
+" let g:airline_theme='badwolf'   "kolor is also good 
+" let g:airline_highlighting_cache = 1
+" let g:airline#extensions#whitespace#enabled=0
+" let g:airline_extensions = []
 let g:lisp_rainbow=1
-let g:loaded_matchit = 1
+set ttimeoutlen=5
+
 
 
 " configuring highlighting colours
 set hlsearch incsearch
 set inccommand=nosplit
-" hi MatchParen cterm=bold ctermbg=red ctermfg=Darkblue
-" hi Search cterm=NONE ctermbg=red ctermfg=blue
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-
 
 "****************************GENERAL CONFIGURATION****************************"
 let g:python3_host_prog = '/home/josh/anaconda3/bin/python3'
@@ -105,17 +147,12 @@ let g:ipy_monitor_subchannel = 0
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END:
 
-" fix slow ctrl-P plugin
-" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-" if executable('ag')
-"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" endif
 
 "*******************************CUSTOM KEYBINDS*******************************"
 :let mapleader = ','
 
 " Toggle various booleans
-noremap <leader>r :ToggleBool<CR>
+nnoremap <leader>r :ToggleBool<CR>
 
 nnoremap <leader>pl oPlug 'pa'
 
@@ -156,8 +193,6 @@ endfunction
 inoremap <M-a> <C-o>:call Alt()<CR>
 
 " scroll window one line in insert mode more easily
-inoremap <C-E> <C-X><C-E>  " up
-inoremap <C-Y> <C-X><C-Y>  " down
 
 " move selection of text using ALT+[jk]
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
@@ -179,18 +214,18 @@ command! W w !sudo tee "%" > /dev/null
 
 
 "************************MESSY AIRLINE SYMBOL CONFIG**************************"
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:miniBufExplForceSyntaxEnable = 1
-let g:airline_powerline_fonts = 1
-let g:Powerline_symbols='unicode'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_detect_modified=1
-let g:airline_inactive_collapse=1
-let g:airline_symbols.branch     = ''
-let g:airline_symbols.paste      = 'ρ'
-let g:airline_symbols.readonly   = ''
-let g:airline_symbols.linenr     = '¶'
-let g:airline_symbols.maxlinenr  = ''
-let g:airline_symbols.whitespace = 'Ξ'
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+" endif
+" let g:miniBufExplForceSyntaxEnable = 1
+" let g:airline_powerline_fonts = 1
+" let g:Powerline_symbols='unicode'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline_detect_modified=1
+" let g:airline_inactive_collapse=1
+" let g:airline_symbols.branch     = ''
+" let g:airline_symbols.paste      = 'ρ'
+" let g:airline_symbols.readonly   = ''
+" let g:airline_symbols.linenr     = '¶'
+" let g:airline_symbols.maxlinenr  = ''
+" let g:airline_symbols.whitespace = 'Ξ'
