@@ -18,7 +18,6 @@ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'}
 " Slightly less essential
 " Plug 'jceb/vim-orgmode', { 'for': 'org' }
 " Lightline
-
 Plug 'itchyny/lightline.vim'
 Plug '844196/lightline-badwolf.vim'
 Plug 'mgee/lightline-bufferline'
@@ -39,6 +38,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-wombat-scheme'
 Plug 'sjl/badwolf'
 " to try out
+Plug 'majutsushi/tagbar'
 Plug 'fncll/wordnet.vim'
 Plug 'sagarrakshe/toggle-bool'
 Plug 'https://github.com/jpalardy/vim-slime'
@@ -129,8 +129,8 @@ set laststatus=2
 set undofile
 
 " configure expanding of tabs for various file types
-" au BufRead,BufNewFile *.py      set expandtab
 " au BufRead,BufNewFile *.c       set noexpandtab
+" au BufRead,BufNewFile *.py      set expandtab
 " au BufRead,BufNewFile *.h       set noexpandtab
 " au BufRead,BufNewFile Makefile* set noexpandtab
 
@@ -168,6 +168,7 @@ nmap <leader>a <Plug>(EasyAlign)
 
 " Toggle undotree
 nnoremap <leader>ut :UndotreeToggle<CR>
+nnoremap <leader>tb :TagbarToggle<CR>
 
 " makes it easier to get out of terminal mode
 if exists(':tnoremap')
@@ -194,16 +195,27 @@ inoremap <M-a> <C-o>:call Alt()<CR>
 
 " scroll window one line in insert mode more easily
 
+nmap <M-h> 5gh
+nmap <M-j> 5gj
+nmap <M-k> 5gk
+nmap <M-l> 5l
+
+vmap <M-h> 5gh
+vmap <M-j> 5gj
+vmap <M-k> 5gk
+vmap <M-l> 5l
+
+" Unused alt moving lines
 " move selection of text using ALT+[jk]
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+" vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 " Move a line of text using ALT+[jk]
 " Normal mode
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
+" nmap <M-j> mz:m+<cr>`z
+" nmap <M-k> mz:m-2<cr>`z
 " Insert mode
-imap <M-j> <C-o>:m .+1<CR>
-imap <M-k> <C-o>:m .-2<CR>
+" imap <M-j> <C-o>:m .+1<CR>
+" imap <M-k> <C-o>:m .-2<CR>
 
 " Use backspace to switch buffers
 " nnoremap <BS> <C-^>
