@@ -15,6 +15,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating', { 'for': 'org' }
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'}
+Plug 'lambdalisue/suda.vim'
 " Slightly less essential
 " Plug 'jceb/vim-orgmode', { 'for': 'org' }
 " Lightline
@@ -197,13 +198,13 @@ inoremap <M-a> <C-o>:call Alt()<CR>
 " scroll window one line in insert mode more easily
 
 nnoremap <M-h> 5h
-nnoremap <M-j> 5gj
-nnoremap <M-k> 5gk
+nnoremap <M-j> 5j
+nnoremap <M-k> 5k
 nnoremap <M-l> 5l
 
 vnoremap <M-h> 5h
-vnoremap <M-j> 5gj
-vnoremap <M-k> 5gk
+vnoremap <M-j> 5j
+vnoremap <M-k> 5k
 vnoremap <M-l> 5l
 
 " Unused alt moving lines
@@ -223,8 +224,9 @@ nnoremap <BS> <C-^>
 
 "******************************CUSTOM COMMANDS********************************"
 " Save as super user even if vim was opened as regular user
-command! W w !sudo tee "%" > /dev/null
-
+" command! W w !sudo tee % > /dev/null
+" command! W :w :term !sudo tee "%" > /dev/null
+command! W :w suda://%
 
 "************************MESSY AIRLINE SYMBOL CONFIG**************************"
 " if !exists('g:airline_symbols')
