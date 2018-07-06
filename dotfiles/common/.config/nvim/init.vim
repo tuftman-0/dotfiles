@@ -38,6 +38,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-wombat-scheme'
 Plug 'sjl/badwolf'
 " to try out
+Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
 Plug 'fncll/wordnet.vim'
 Plug 'sagarrakshe/toggle-bool'
@@ -195,15 +196,15 @@ inoremap <M-a> <C-o>:call Alt()<CR>
 
 " scroll window one line in insert mode more easily
 
-nmap <M-h> 5gh
-nmap <M-j> 5gj
-nmap <M-k> 5gk
-nmap <M-l> 5l
+nnoremap <M-h> 5h
+nnoremap <M-j> 5gj
+nnoremap <M-k> 5gk
+nnoremap <M-l> 5l
 
-vmap <M-h> 5gh
-vmap <M-j> 5gj
-vmap <M-k> 5gk
-vmap <M-l> 5l
+vnoremap <M-h> 5h
+vnoremap <M-j> 5gj
+vnoremap <M-k> 5gk
+vnoremap <M-l> 5l
 
 " Unused alt moving lines
 " move selection of text using ALT+[jk]
@@ -218,7 +219,7 @@ vmap <M-l> 5l
 " imap <M-k> <C-o>:m .-2<CR>
 
 " Use backspace to switch buffers
-" nnoremap <BS> <C-^>
+nnoremap <BS> <C-^>
 
 "******************************CUSTOM COMMANDS********************************"
 " Save as super user even if vim was opened as regular user
