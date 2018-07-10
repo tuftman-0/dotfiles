@@ -32,7 +32,6 @@ PV_IMAGE_ENABLED="${5}"  # 'True' if image previews are enabled, 'False' otherwi
 
 FILE_EXTENSION="${FILE_PATH##*.}"
 FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
-# FILE_EXTENSION_LOWER="${FILE_EXTENSION,,}"
 
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
@@ -61,7 +60,8 @@ handle_extension() {
         # PDF
         pdf)
             # Preview as text conversion
-            pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 5
+            pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - | fmt -w ${PV_WIDTH} && exit 5
+            mutool draw -F txt -i -- "${FILE_PATH}" 1-10 | fmt -w ${PV_WIDTH} && exit 5
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
 

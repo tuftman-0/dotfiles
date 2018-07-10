@@ -3,19 +3,25 @@ autocmd! BufWritePost ~/.config/nvim/init.vim nested :source ~/.config/nvim/init
 " get cool plugins
 call plug#begin('~/.vim/plugged')
 " Essential
-Plug 'jeffkreeftmeijer/neovim-sensible'
+
+" Plug 'jeffkreeftmeijer/neovim-sensible'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-swap'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating', { 'for': 'org' }
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'}
 Plug 'lambdalisue/suda.vim'
+" Completion
+Plug 'ajh17/VimCompletesMe'
+" Plug 'roxma/nvim-completion-manager'
+
 " Slightly less essential
 " Plug 'jceb/vim-orgmode', { 'for': 'org' }
 " Lightline
@@ -28,9 +34,9 @@ Plug 'mgee/lightline-bufferline'
 " Filesystem
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 " Programming
-Plug 'ajh17/VimCompletesMe'
-Plug 'roxma/nvim-completion-manager'
 Plug 'hkupty/iron.nvim',
 Plug 'wilywampa/vim-ipython', 
 Plug 'kovisoft/slimv'
@@ -39,14 +45,13 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-wombat-scheme'
 Plug 'sjl/badwolf'
 " to try out
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
 Plug 'fncll/wordnet.vim'
 Plug 'sagarrakshe/toggle-bool'
 Plug 'https://github.com/jpalardy/vim-slime'
 call plug#end()
 
-"*****************************THEME AND COLOURS*******************************"
 
 let g:lightline = {
   \ 'colorscheme': 'badwolf',
@@ -87,40 +92,43 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
+"*****************************THEME AND COLOURS*******************************"
 
 colorscheme badwolf
-" let g:airline_theme='badwolf'   "kolor is also good 
-" let g:airline_highlighting_cache = 1
-" let g:airline#extensions#whitespace#enabled=0
-" let g:airline_extensions = []
 let g:lisp_rainbow=1
-set ttimeoutlen=5
-
-
+set ttimeoutlen=10
 
 " configuring highlighting colours
 set hlsearch incsearch
 set inccommand=nosplit
 
 "****************************GENERAL CONFIGURATION****************************"
+filetype plugin indent on
+let g:ranger_map_keys = 0
+
 let g:python3_host_prog = '/home/josh/anaconda3/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 let g:slime_target = "neovim"
 
-" set expandtab          " enter spaces when tab is pressed
-" set tabstop=4          " use 4 spaces to represent tab
-" set softtabstop=4
-" set shiftwidth=4       " number of spaces to use for auto indent
-" set autoindent         " copy indent from current line when starting a new line
+" Show `▸▸` for tabs: 	, `·` for tailing whitespace: 
+" set list listchars=tab:▸▸,trail:·
+set list listchars=tab:\|\ ,trail:·
 
-" set encoding=utf-8
+set expandtab tabstop=4 softtabstop=4 shiftwidth=4
+set autoindent
+" let ts = &tabstop
+" autocmd FileType python exec 'setlocal tabstop=' . ts
+
+set clipboard=unnamed
+set colorcolumn=80
+set mouse=a
+
 set scrolloff=3
 set cursorline
 set showmode
 set showcmd
 set noshowmatch
-" set matchtime=1
-
+" set matchtime=1 " if showmatch is set
 
 set hidden
 set wildmenu
@@ -136,30 +144,33 @@ set undofile
 " au BufRead,BufNewFile *.h       set noexpandtab
 " au BufRead,BufNewFile Makefile* set noexpandtab
 
-filetype plugin indent on
-
 " ipython jupyter-qtconsole connection thing
 let g:ipy_monitor_subchannel = 0
 
 " cool line numbering config
 :set number relativenumber
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-:augroup END:
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END:
 
 
 "*******************************CUSTOM KEYBINDS*******************************"
-:let mapleader = ','
+let mapleader = ','
 
-" Toggle various booleans
-nnoremap <leader>r :ToggleBool<CR>
-
-nnoremap <leader>pl oPlug 'pa'
+" switch buffers
+nnoremap <leader><leader> :b#<CR>
+" nnoremap <BS> <C-^>
 
 " fuzzy finder
 nnoremap <leader>ff :FZF<CR>
+
+" toggle various booleans
+nnoremap <leader>r :ToggleBool<CR>
+
+" easy paste new plugin
+nnoremap <leader>pl oPlug ''P
 
 " Use <leader>l to clear the search highlighting
 nnoremap <silent> <leader>l :noh<CR>
@@ -168,8 +179,9 @@ nnoremap <silent> <leader>l :noh<CR>
 vmap <Enter> <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
 
-" Toggle undotree
+" toggle undotree
 nnoremap <leader>ut :UndotreeToggle<CR>
+" toggle tagbar
 nnoremap <leader>tb :TagbarToggle<CR>
 
 " makes it easier to get out of terminal mode
@@ -195,19 +207,17 @@ function! Alt()
 endfunction
 inoremap <M-a> <C-o>:call Alt()<CR>
 
-" scroll window one line in insert mode more easily
-
+" move around faster with alt
 nnoremap <M-h> 5h
 nnoremap <M-j> 5j
 nnoremap <M-k> 5k
 nnoremap <M-l> 5l
-
 vnoremap <M-h> 5h
 vnoremap <M-j> 5j
 vnoremap <M-k> 5k
 vnoremap <M-l> 5l
 
-" Unused alt moving lines
+" Unused alt moving lines (dont need because of unimpaired [e and ]e )
 " move selection of text using ALT+[jk]
 " vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 " vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
@@ -219,28 +229,8 @@ vnoremap <M-l> 5l
 " imap <M-j> <C-o>:m .+1<CR>
 " imap <M-k> <C-o>:m .-2<CR>
 
-" Use backspace to switch buffers
-nnoremap <BS> <C-^>
-
 "******************************CUSTOM COMMANDS********************************"
 " Save as super user even if vim was opened as regular user
 " command! W w !sudo tee % > /dev/null
 " command! W :w :term !sudo tee "%" > /dev/null
 command! W :w suda://%
-
-"************************MESSY AIRLINE SYMBOL CONFIG**************************"
-" if !exists('g:airline_symbols')
-"     let g:airline_symbols = {}
-" endif
-" let g:miniBufExplForceSyntaxEnable = 1
-" let g:airline_powerline_fonts = 1
-" let g:Powerline_symbols='unicode'
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline_detect_modified=1
-" let g:airline_inactive_collapse=1
-" let g:airline_symbols.branch     = ''
-" let g:airline_symbols.paste      = 'ρ'
-" let g:airline_symbols.readonly   = ''
-" let g:airline_symbols.linenr     = '¶'
-" let g:airline_symbols.maxlinenr  = ''
-" let g:airline_symbols.whitespace = 'Ξ'

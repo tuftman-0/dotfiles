@@ -96,25 +96,25 @@ source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*' completer _expand _complete _ignored
 
-zle-keymap-select () {
-if [ $KEYMAP = vicmd ]; then
-    printf "\033[2 q"
-else
-    printf "\033[6 q"
-fi
-}
-zle -N zle-keymap-select
-zle-line-init () {
-zle -K viins
-printf "\033[6 q"
-}
-zle -N zle-line-init
-bindkey -v
-export KEYTIMEOUT=1
-bindkey "^?" backward-delete-char
-bindkey "^[[3~" delete-char
-bindkey "^[[7~" beginning-of-line
-bindkey "^[[8~" end-of-line
+# zle-keymap-select () {
+# if [ $KEYMAP = vicmd ]; then
+#     printf "\033[2 q"
+# else
+#     printf "\033[6 q"
+# fi
+# }
+# zle -N zle-keymap-select
+# zle-line-init () {
+# zle -K viins
+# printf "\033[6 q"
+# }
+# zle -N zle-line-init
+# bindkey -v
+# export KEYTIMEOUT=1
+# bindkey "^?" backward-delete-char
+# bindkey "^[[3~" delete-char
+# bindkey "^[[7~" beginning-of-line
+# bindkey "^[[8~" end-of-line
 
 ex ()
 {
