@@ -12,7 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-eunuch'
-" Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating', { 'for': 'org' }
 Plug 'tpope/vim-fugitive'
@@ -116,8 +116,8 @@ set list listchars=tab:\|\ ,trail:·
 
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 set autoindent
-" let ts = &tabstop
-" autocmd FileType python exec 'setlocal tabstop=' . ts
+let ts = &tabstop
+autocmd FileType python exec 'setlocal tabstop=' . ts
 
 set clipboard=unnamed
 set colorcolumn=80
