@@ -147,6 +147,7 @@ VISUAL=nvim
 export VISUAL
 EDITOR=nvim
 export EDITOR
+alias vim='nvim'
 alias vimdiff='nvim -d'
 alias pyth='python /home/josh/repos/pyth/pyth.py'
 V=/home/josh/repos/V
