@@ -14,7 +14,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-speeddating', { 'for': 'org' }
+" Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle'}
 Plug 'lambdalisue/suda.vim'
@@ -51,46 +51,6 @@ Plug 'fncll/wordnet.vim'
 Plug 'sagarrakshe/toggle-bool'
 Plug 'https://github.com/jpalardy/vim-slime'
 call plug#end()
-
-
-let g:lightline = {
-  \ 'colorscheme': 'badwolf',
-  \ 'active': {
-  \   'left':[ [ 'mode', 'paste' ],
-  \            [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-  \ },
-  \ 'component': {
-  \   'lineinfo': ' %3l:%-2v',
-  \ },
-  \ 'component_function': {
-  \   'readonly': 'LightlineReadonly',
-  \   'fugitive': 'LightlineFugitive'
-  \ },
-  \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '', 'right': '' }
-  \ }
-
-function! LightlineReadonly()
-        return &readonly ? '' : ''
-endfunction
-
-function! LightlineFugitive()
-        if exists('*fugitive#head')
-                let branch = fugitive#head()
-                return branch !=# '' ? ''.branch : ''
-        endif
-        return ''
-endfunction
-
-let g:lightline.tabline = {
-  \   'left': [ ['buffers'] ],
-  \   'right': [ ['tabs'] ]
-  \ }
-
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
-set showtabline=2  " Show tabline
-set guioptions-=e  " Don't use GUI tabline
 
 "*****************************THEME AND COLOURS*******************************"
 
@@ -234,3 +194,44 @@ vnoremap <M-l> 5l
 " command! W w !sudo tee % > /dev/null
 " command! W :w :term !sudo tee "%" > /dev/null
 command! W :w suda://%
+
+"******************************LIGHTLINE CONFIG********************************"
+let g:lightline = {
+  \ 'colorscheme': 'badwolf',
+  \ 'active': {
+  \   'left':[ [ 'mode', 'paste' ],
+  \            [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component': {
+  \   'lineinfo': ' %3l:%-2v',
+  \ },
+  \ 'component_function': {
+  \   'readonly': 'LightlineReadonly',
+  \   'fugitive': 'LightlineFugitive'
+  \ },
+  \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '', 'right': '' }
+  \ }
+
+function! LightlineReadonly()
+        return &readonly ? '' : ''
+endfunction
+
+function! LightlineFugitive()
+        if exists('*fugitive#head')
+                let branch = fugitive#head()
+                return branch !=# '' ? ''.branch : ''
+        endif
+        return ''
+endfunction
+
+let g:lightline.tabline = {
+  \   'left': [ ['buffers'] ],
+  \   'right': [ ['tabs'] ]
+  \ }
+
+
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
