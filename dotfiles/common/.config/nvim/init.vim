@@ -12,7 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-unimpaired'
 " Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-fugitive'
@@ -121,7 +121,7 @@ let mapleader = ','
 
 " switch buffers
 nnoremap <leader><leader> :b#<CR>
-" nnoremap <BS> <C-^>
+nnoremap <BS> <C-^>
 
 " fuzzy finder
 nnoremap <leader>ff :FZF<CR>
