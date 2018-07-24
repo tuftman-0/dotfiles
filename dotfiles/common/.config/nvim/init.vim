@@ -40,6 +40,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'hkupty/iron.nvim',
 Plug 'wilywampa/vim-ipython', 
 Plug 'kovisoft/slimv'
+Plug 'manicmaniac/coconut.vim'
 " Themes
 Plug 'nanotech/jellybeans.vim'
 Plug 'sheerun/vim-wombat-scheme'
@@ -177,6 +178,17 @@ vnoremap <M-j> 5j
 vnoremap <M-k> 5k
 vnoremap <M-l> 5l
 
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+
 " Unused alt moving lines (dont need because of unimpaired [e and ]e )
 " move selection of text using ALT+[jk]
 " vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
@@ -233,5 +245,6 @@ let g:lightline.tabline = {
 
 let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline#bufferline#show_number = 2
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline

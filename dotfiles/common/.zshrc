@@ -160,6 +160,7 @@ alias svim='vim -u ~/.SpaceVim/init.vim'
 
 # added by Anaconda3 installer
 typeset -U path
+export PATH="/home/josh/.local/bin:$PATH"
 export PATH="/home/josh/anaconda3/bin:$PATH"
 export PATH="/home/josh/.gem/ruby/2.5.0/bin:$PATH"
 export PYTHONPATH="/home/josh/anaconda3/bin/python"
