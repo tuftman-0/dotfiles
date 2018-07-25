@@ -167,6 +167,6 @@ export PYTHONPATH="/home/josh/anaconda3/bin/python"
 # load local ranger config.rc
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
-source ~/.zsh/zsh-sensible/sensible.zsh
+# source ~/.zsh/zsh-sensible/sensible.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

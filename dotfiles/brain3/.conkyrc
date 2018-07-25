@@ -26,7 +26,6 @@ cpu_avg_samples 2  # Average CPU use with 2 samples
 TEXT
 
 [
-    { "full_text" : "${if_mpd_playing}${mpd_status}: ${exec mpc current | sed 's/"/\\"/g'} ${mpd_elapsed}/${mpd_length}${endif}", "color" : "\#5f87ff"},
     ${if_up eno1} { "full_text" : "E ▼ ${downspeedf eno1}K ▲ ${upspeedf eno1}K"}, ${else}\
       ${if_up enp0s25} { "full_text" : "E ▼ ${downspeedf enp0s25}K ▲ ${upspeedf enp0s25}K"}, ${else}\
         ${if_up wlp2s0} { "full_text" : "W ▼ ${downspeedf wlp2s0}K ▲ ${upspeedf wlp2s0}K"}, ${else}\

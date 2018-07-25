@@ -167,3 +167,6 @@ export PYTHONPATH="/home/josh/anaconda3/bin"
 # export RANGER_LOAD_DEFAULT_RC=FALSE
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# added by Anaconda3 installer
+export PATH="/home/josh/anaconda3/bin:$PATH"
