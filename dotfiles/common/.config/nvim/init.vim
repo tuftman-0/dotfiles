@@ -50,7 +50,7 @@ Plug 'sjl/badwolf'
 Plug 'majutsushi/tagbar'
 Plug 'fncll/wordnet.vim'
 Plug 'sagarrakshe/toggle-bool'
-Plug 'https://github.com/jpalardy/vim-slime'
+Plug 'jpalardy/vim-slime'
 call plug#end()
 
 "*****************************THEME AND COLOURS*******************************"
@@ -65,11 +65,12 @@ set inccommand=nosplit
 
 "****************************GENERAL CONFIGURATION****************************"
 filetype plugin indent on
-let g:ranger_map_keys = 0
 
+let g:ranger_map_keys = 0
 let g:python3_host_prog = '/home/josh/anaconda3/bin/python3'
 let g:python_host_prog = '/usr/bin/python2'
 let g:slime_target = "neovim"
+let g:netrw_browsex_viewer= "google-chrome-stable"
 
 " Show `▸▸` for tabs: 	, `·` for tailing whitespace: 
 " set list listchars=tab:▸▸,trail:·

@@ -1,14 +1,14 @@
 .zshrc
 .bashrc
 .bash_profile
-.conkyrc:brain4
+.conkyrc:brain2
 .conkyrc:brain3
 .spacemacs
 .font_aliases
-.Xresources:brain4
+.Xresources:brain2
 .Xresources:brain3
 .dmenurc
-.config/compton.conf:brain4
+.config/compton.conf:brain2
 .config/compton.conf:brain3
 .config/nvim/init.vim
 .config/dunst/dunstrc
@@ -16,7 +16,7 @@
 .config/ranger/rc.conf
 .config/ranger/rifle.conf
 .config/ranger/scope.sh
-.i3/config:brain4
+.i3/config:brain2
 .i3/config:brain3
 .i3/i3bar-conky
 .i3/tabber.sh
