@@ -18,5 +18,6 @@
 .config/ranger/scope.sh
 .i3/config:brain2
 .i3/config:brain3
+.i3/stupidpulse.bash
 .i3/i3bar-conky
 .i3/tabber.sh
