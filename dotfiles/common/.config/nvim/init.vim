@@ -128,6 +128,9 @@ nnoremap <BS> <C-^>
 " fuzzy finder
 nnoremap <leader>ff :FZF<CR>
 
+" ranger
+map <leader>R :Ranger<CR>
+
 " toggle various booleans
 nnoremap <leader>r :ToggleBool<CR>
 
