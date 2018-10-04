@@ -138,35 +138,5 @@ ex ()
   fi
 }
 
-# Add bash aliases.
-if [ -f ~/.font_aliases ]; then
-    source ~/.font_aliases
-fi
-
-VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
-alias sbcl="rlwrap sbcl"
-alias pyth="python /home/josh/repos/pyth/pyth.py"
-V=/home/josh/repos/V
-export V
-alias v="python2 $V/main.py"
-alias osabie='python ~/repos/05AB1E/osabie.py'
-export NVIM_LISTEN_ADDRESS=/tmp/nvim
-alias vim="nvim"
-
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-
-# add anaconda/bin to path
-# export PATH="/opt/anaconda/bin:$PATH"
-
-# added by Anaconda3 installer
-export PATH="/home/josh/anaconda3/bin:$PATH"
-export PYTHONPATH="/home/josh/anaconda3/bin"
-
-# load local ranger config.rc
-# export RANGER_LOAD_DEFAULT_RC=FALSE
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# added by Anaconda3 installer
-export PATH="/home/josh/anaconda3/bin:$PATH"

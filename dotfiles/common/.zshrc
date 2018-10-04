@@ -163,9 +163,11 @@ typeset -U path
 export PATH="/home/josh/.local/bin:$PATH"
 export PATH="/home/josh/anaconda3/bin:$PATH"
 export PATH="/home/josh/.gem/ruby/2.5.0/bin:$PATH"
-export PYTHONPATH="/home/josh/anaconda3/bin/python"
+# export PYTHONPATH="/home/josh/anaconda3/bin/python"
 # load local ranger config.rc
 export RANGER_LOAD_DEFAULT_RC=FALSE
+# TERM=xterm-256color
+TERM=rxvt-unicode
 
 # source ~/.zsh/zsh-sensible/sensible.zsh
 
