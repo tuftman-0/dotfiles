@@ -47,6 +47,7 @@ Plug 'sheerun/vim-wombat-scheme'
 Plug 'sjl/badwolf'
 " to try out
 " Plug 'easymotion/vim-easymotion'
+Plug 'joshhartigan/vim-reddit'
 Plug 'majutsushi/tagbar'
 Plug 'fncll/wordnet.vim'
 Plug 'sagarrakshe/toggle-bool'
