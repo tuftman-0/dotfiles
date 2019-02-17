@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/josh/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -149,8 +149,8 @@ EDITOR=nvim
 export EDITOR
 alias vim='nvim'
 alias vimdiff='nvim -d'
-alias pyth='python /home/josh/repos/pyth/pyth.py'
-V=/home/josh/repos/V
+alias pyth='python ~/repos/pyth/pyth.py'
+V=~/repos/V
 export V
 alias v="python2 $V/main.py"
 export NVIM_LISTEN_ADDRESS=/tmp/nvim
@@ -159,11 +159,11 @@ alias svim='vim -u ~/.SpaceVim/init.vim'
 
 
 typeset -U path
-export PATH="/home/josh/.local/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
 # added by Anaconda3 installer
-export PATH="/home/josh/anaconda3/bin:$PATH"
-export PATH="/home/josh/.gem/ruby/2.5.0/bin:$PATH"
-# export PYTHONPATH="/home/josh/anaconda3/bin/python"
+export PATH="~/anaconda3/bin:$PATH"
+export PATH="~/.gem/ruby/2.5.0/bin:$PATH"
+# export PYTHONPATH="~/anaconda3/bin/python"
 # load local ranger config.rc
 export RANGER_LOAD_DEFAULT_RC=FALSE
 # TERM=xterm-256color

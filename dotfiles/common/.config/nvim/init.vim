@@ -143,6 +143,7 @@ nnoremap <silent> <leader>l :noh<CR>
 
 " easy align mapping
 vmap <Enter> <Plug>(EasyAlign)
+xmap <leader>a <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
 
 " toggle undotree
